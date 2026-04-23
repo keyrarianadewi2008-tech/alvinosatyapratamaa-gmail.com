@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState, createContext, useContext } from 'react';
 import { supabase } from './lib/supabase';
 import { AppUser } from './types';
@@ -132,7 +132,7 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={{ user, loading, signOut }}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Landing />} />
@@ -169,7 +169,7 @@ export default function App() {
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthContext.Provider>
   );
 }
